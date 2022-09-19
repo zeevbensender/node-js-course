@@ -35,7 +35,11 @@ const getDogPic = async () => {
     return "success";
 }
 
-getDogPic().then((ignore) =>
-    console.log("Finished successfully")
-    ).catch((ignore) => 
-    console.log("ERROR!!!"));
+(async () => {
+    try{
+        await getDogPic();
+        console.log("Finished successfully");
+    }catch(err) {
+        console.log("ERROR!!!");
+    }
+})();
