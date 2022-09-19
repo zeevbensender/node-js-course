@@ -29,20 +29,13 @@ const getDogPic = async () => {
         writeFilePromice('dog-img.txt', res.body.message);
         console.log('Random dog image saved to the file!');
     }catch(err) {
-        console.log(err);    
+        console.log(err);  
+        throw(err);  
     }
+    return "success";
 }
 
-getDogPic();
-
-// readFilePromice(`${__dirname}/dog.txt`).then(data => {
-//     console.log(`Breed: ${data}`);
-//     return superagent.get(`https://dog.ceo/api/breed/${data}/images/random`)
-// }).then(res => {
-//     console.log(res.body.message);
-//     return writeFilePromice('dog-img.txt', res.body.message)
-// }).then(() => {
-//     console.log('Random dog image saved to the file!');
-// }).catch(err => {
-//     console.log(err.message);
-// });
+getDogPic().then((ignore) =>
+    console.log("Finished successfully")
+    ).catch((ignore) => 
+    console.log("ERROR!!!"));
